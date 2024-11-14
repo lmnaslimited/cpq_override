@@ -10,6 +10,10 @@ def after_install():
         "Design-Side Panel": {
             "doctype": "Design",
             "layout": '[{"label": "Design Information", "name": "design_information", "opened": true, "fields": ["design_template", "status"]}, {"label": "Design Attributes", "name": "design_attributes_tab", "opened": true, "fields": [{"name": "design_attributes", "options": "Item Variant Attribute", "type": "Table", "link": "Item Attribute Value"}]}, {"label": "Ownership", "name": "ownership_tab", "opened": true, "fields": ["created_by"]}]'
+        },
+        "Item-Side Panel": {
+            "doctype": "Item",
+            "layout": '[{"label":"Detail","name":"detail","opened":true,"fields":["item_code","item_name","item_group"]},{"label":"Item Attributes","name":"item_attributes","opened":true,"fields":[{"name":"attributes","options":"Item Variant Attribute","type":"Table","link":"Item Attribute Value"}]}]'
         }
     }
 
