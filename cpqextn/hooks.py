@@ -84,7 +84,7 @@ app_license = "mit"
 
 # before_install = "cpqextn.install.before_install"
 # after_install = "cpqextn.install.after_install"
-
+after_install = "cpqextn.install.after_install"
 # Uninstallation
 # ------------
 

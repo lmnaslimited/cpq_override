@@ -1,0 +1,2 @@
+import{y as c}from"./UserAvatar-e49c5291.js";import{r as i,u as m,b as o,c as l,t as u,S as r,C as t,g as a,G as y}from"./index-d057f33a.js";const g={__name:"Icon",props:{icon:{type:[String,Object],required:!0}},setup(e){return(n,p)=>{const s=i("FeatherIcon");return m(c)(e.icon)?(o(),l("div",r(t({key:0},n.$attrs)),u(e.icon),17)):typeof e.icon=="string"?(o(),a(s,t({key:1,name:e.icon},n.$attrs),null,16,["name"])):(o(),a(y(e.icon),r(t({key:2},n.$attrs)),null,16))}}};export{g as _};
+//# sourceMappingURL=Icon-b0abef9d.js.map
