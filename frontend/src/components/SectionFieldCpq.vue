@@ -76,7 +76,7 @@ const handleInputChange = (childDoctype, parentDocName, targetField, newValue, s
   const updateResource = (childDoctype, parentDocName, targetField, newValue, sourceDoctype) => {
     
     createResource({
-      url: 'crm.api.docCpq.update_child_table',
+      url: 'crm.api.docCpq.update_item_attribute',
       method: 'PUT',
       params: {
         child_doctype : childDoctype,

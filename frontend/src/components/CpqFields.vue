@@ -3,6 +3,7 @@
     <template #custom-fields="{ field, data }">
       <!-- Custom fields for Design CPQ -->
       <div v-if="field.type === 'Range'">
+         <p class="mb-2 text-sm text-gray-600">{{ __(field.label) }}</p>
         <input
           type="range"
           :class="field.name"

@@ -23,11 +23,24 @@ export const cpqRoutes = [
       name: 'Items',
       component: () => import('@/pages/Items.vue'),
       meta: { scrollPos: { top: 0, left: 0 } },
-  },
+    },
     {
       path: '/items/:itemId',
       name: 'Item',
       component: () => import(`@/pages/${handleMobileView('Item')}.vue`),
+      props: true,
+    },
+    {
+      alias: '/quotations',
+      path: '/quotations/view/:viewType?',
+      name: 'Quotations',
+      component: () => import('@/pages/Quotations.vue'),
+      meta: { scrollPos: { top: 0, left: 0 } },
+    },
+    {
+      path: '/quotations/:quotationId',
+      name: 'Quotation',
+      component: () => import(`@/pages/${handleMobileView('Quotation')}.vue`),
       props: true,
     },
 ]
@@ -46,7 +59,12 @@ export const cpqLinks = [
       label: 'Items',
       icon: TaskIcon,
       to: 'Items',
-  },
+    },
+    {
+      label: 'Quotations',
+      icon: TaskIcon,
+      to: 'Quotations',
+    },
   
 ]
 
@@ -56,6 +74,8 @@ export function getCustomIcon(routeName) {
       case 'Designs':
         return TaskIcon
       case 'Items':
+        return TaskIcon
+      case 'Quotations':
         return TaskIcon
       default:
         return null
