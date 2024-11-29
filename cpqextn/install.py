@@ -1,11 +1,7 @@
-from crm.crm.install import add_default_fields_layout
 import frappe
 
 def after_install():
-    # Call the original function to add default layouts
-    add_default_fields_layout()
     
-    # lenscpq sidebar panel
     cpq_sidebar_fields_layouts = {
         "Design-Side Panel": {
             "doctype": "Design",
