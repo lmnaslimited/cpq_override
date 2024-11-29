@@ -47,6 +47,7 @@ export const cpqRoutes = [
 
 // importing the icon
 import TaskIcon from '@/components/Icons/TaskIcon.vue'
+import NoteIcon from '@/components/Icons/NoteIcon.vue'
 
 //cpq Menu 
 export const cpqLinks = [
@@ -62,7 +63,7 @@ export const cpqLinks = [
     },
     {
       label: 'Quotations',
-      icon: TaskIcon,
+      icon: NoteIcon,
       to: 'Quotations',
     },
   
@@ -76,7 +77,7 @@ export function getCustomIcon(routeName) {
       case 'Items':
         return TaskIcon
       case 'Quotations':
-        return TaskIcon
+        return NoteIcon
       default:
         return null
     }
