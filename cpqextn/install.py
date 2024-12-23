@@ -5,7 +5,7 @@ def after_install():
     cpq_sidebar_fields_layouts = {
         "Design-Side Panel": {
             "doctype": "Design",
-            "layout": '[{"label": "Design Information", "name": "design_information", "opened": true, "fields": ["design_template", "status"]}, {"label": "Design Attributes", "name": "design_attributes_tab", "opened": true, "fields": [{"name": "design_attributes", "options": "Item Variant Attribute", "type": "Table", "link": "Item Attribute Value"}]}, {"label": "Ownership", "name": "ownership_tab", "opened": true, "fields": ["created_by"]}]'
+            "layout": '[{"label":"Design Information","name":"design_information","opened":true,"fields":["design_template","status","item"]},{"label":"Design Attributes","name":"design_attributes_tab","opened":true,"fields":[{"name":"design_attributes","options":"Item Variant Attribute","type":"Table","link":"Item Attribute Value"}]},{"label":"Price List","name":"price_list","opened":true,"fields":["direct_material_cost","total_cost"]},{"label":"Ownership","name":"ownership_tab","opened":true,"fields":["created_by"]}]'
         },
         "Item-Side Panel": {
             "doctype": "Item",
@@ -13,7 +13,7 @@ def after_install():
         },
         "Quotation-Side Panel": {
             "doctype": "Quotation",
-            "layout": '[{"label":"Detail","name":"detail","fields":["quotation_to","party_name","customer_name","transaction_date","valid_till","order_type"]},{"label":"Currency and Price List","name":"currency_and_price_list","fields":["currency","selling_price_list"]}]'
+            "layout": '[{"label":"Detail","name":"detail","fields":["quotation_to","party_name","customer_name","transaction_date","valid_till","order_type"]},{"label":"Currency and Price List","name":"currency_and_price_list","fields":["currency","selling_price_list"]},{"label":"Total","name":"total","fields":["total_qty","total","net_total","grand_total"]},{"label":"Additional Discount","name":"additional_discount","opened":false,"fields":["apply_discount_on","additional_discount_percentage","discount_amount"]}]'
         },
     }
 
