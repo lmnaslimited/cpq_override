@@ -21,6 +21,10 @@ def after_install():
         "Quotation-Quick Entry": {
             "doctype": "Quotation",
             "layout": '[{"label":"Details","fields":["quotation_to","party_name","transaction_date","valid_till","status"],"columns":3,"hideLabel":true,"hideBorder":false},{"label":"Currency and Price List","fields":["currency","selling_price_list"],"columns":2,"hideLabel":false,"hideBorder":false}]'
+        },
+        "Item-Quick Entry": {
+            "doctype": "Item",
+            "layout": '[{"label": "Detail", "fields": ["item_code", "item_name", "item_group", "stock_uom"], "columns": 2, "hideLabel": true, "hideBorder": false}]'
         }
     }
 
