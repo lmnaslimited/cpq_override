@@ -242,3 +242,19 @@ after_install = "cpqextn.install.after_install"
 # 	"Logging DocType Name": 30  # days to retain logs
 # }
 
+fixtures = [
+    {
+        "doctype": "Custom Field",
+         "filters": [
+            [
+                "name",
+                "in",
+                (
+                    "Item Attribute-custom_parent_of",
+                    "Item Attribute-custom_column_break_cbl",
+                    "Item Attribute-custom_is_group"
+                )
+            ]
+         ]
+    }
+]
