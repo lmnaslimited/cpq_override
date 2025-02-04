@@ -15,6 +15,10 @@ def after_install():
             "doctype": "Quotation",
             "layout": '[{"label":"Detail","name":"detail","fields":["quotation_to","party_name","customer_name","transaction_date","valid_till","order_type"]},{"label":"Currency and Price List","name":"currency_and_price_list","fields":["currency","selling_price_list"]},{"label":"Total","name":"total","fields":["total_qty","total","net_total","grand_total"]},{"label":"Additional Discount","name":"additional_discount","opened":false,"fields":["apply_discount_on","additional_discount_percentage","discount_amount"]}]'
         },
+        "Condition Type-Side Panel": {
+            "doctype": "Condition Type",
+            "layout": '[{"label":"Detail","name":"detail","fields":["document_reference","condition_type","is_formula_based","is_api_based","is_value_based","enable"]}]'
+        },
     }
 
     cpq_quick_entry_layouts = {

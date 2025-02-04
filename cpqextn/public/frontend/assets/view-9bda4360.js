@@ -1,0 +1,2 @@
+import{L as s,G as l,K as c}from"./GroupByIcon-e75d98f9.js";import{v as p}from"./views-ffc45615.js";import{ap as o}from"./index-18fe58f1.js";const{getView:u}=p();function a(i){return{list:{label:__("List"),icon:o(s)},group_by:{label:__("Group By"),icon:o(l)},kanban:{label:__("Kanban"),icon:o(c)}}[i]}function m(i,n,r){let t=n||"list",e=u(i,t,r);return e&&!e.icon&&(e.icon=a(t).icon),e||a(t)}export{m as g};
+//# sourceMappingURL=view-9bda4360.js.map
