@@ -1,2 +1,0 @@
-import{_ as e}from"./LayoutHeader-37b7bb3d.js";import{g as t,w as r,f as s,b as o,u as _}from"./index-8d321732.js";import{_ as m}from"./Breadcrumbs.vue_vue_type_script_setup_true_lang-88aeabb8.js";import"./Dropdown.vue_vue_type_script_setup_true_lang-fe0346d3.js";const d={__name:"Dashboard",setup(c){const a=[{label:"Dashboard",route:{name:"Dashboard"}}];return(i,l)=>(s(),t(e,null,{"left-header":r(()=>[o(_(m),{items:a})]),_:1}))}};export{d as default};
-//# sourceMappingURL=Dashboard-69ed6ab4.js.map

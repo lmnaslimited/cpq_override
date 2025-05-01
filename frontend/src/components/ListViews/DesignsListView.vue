@@ -161,12 +161,10 @@
   <script setup>
   import HeartIcon from '@/components/Icons/HeartIcon.vue'
   import IndicatorIcon from '@/components/Icons/IndicatorIcon.vue'
-  import PhoneIcon from '@/components/Icons/PhoneIcon.vue'
   import MultipleAvatar from '@/components/MultipleAvatar.vue'
   import ListBulkActions from '@/components/ListBulkActions.vue'
   import ListRows from '@/components/ListViews/ListRows.vue'
   import {
-    Avatar,
     ListView,
     ListHeader,
     ListHeaderItem,

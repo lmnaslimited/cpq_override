@@ -129,6 +129,8 @@ declare module 'vue' {
     IndicatorIcon: typeof import('./src/components/Icons/IndicatorIcon.vue')['default']
     InviteIcon: typeof import('./src/components/Icons/InviteIcon.vue')['default']
     InviteMemberPage: typeof import('./src/components/Settings/InviteMemberPage.vue')['default']
+    ItemModal: typeof import('./src/components/Modals/ItemModal.vue')['default']
+    ItemsListView: typeof import('./src/components/ListViews/ItemsListView.vue')['default']
     KanbanIcon: typeof import('./src/components/Icons/KanbanIcon.vue')['default']
     KanbanSettings: typeof import('./src/components/Kanban/KanbanSettings.vue')['default']
     KanbanView: typeof import('./src/components/Kanban/KanbanView.vue')['default']

@@ -155,8 +155,8 @@
   })
   
   const design = createResource({
-    url: 'crm.apiCpq.design.get_design',
-    params: { name: props.designId },
+    url: 'crm.apiCpq.design.get_doc_details',
+    params: {doctype:"Design", name: props.designId },
     cache: ['design', props.designId],
     onSuccess: (data) => {
       setupAssignees(design)
@@ -340,21 +340,6 @@
     cache: ['sidePanelSections', 'Design'],
     params: { doctype: 'Design' },
     auto: true,
-    onSuccess: (data) => {
-        // Check if 'design.data.item' is present before proceeding
-        if (design.data?.item) {
-        // Loop through each section
-        data.forEach(section => {
-            // Loop through each column in the section
-            section.columns?.forEach(column => {
-            // Loop through each field in the column
-            column.fields?.forEach(field => {
-                field.read_only = 1;
-            });
-            });
-        });
-        }
-    }
   })
 
   console.log("sections data", sections)
@@ -445,5 +430,22 @@ const getTotalCost = () => {
     }
   }).fetch()
 }
+
+watch(
+  () => sections.data,
+  (val) => {
+    if (val && design.data?.item) {
+      console.log("design")
+      val.forEach(section => {
+        section.columns?.forEach(column => {
+          column.fields?.forEach(field => {
+            field.read_only = 1;
+          });
+        });
+      });
+    }
+  },
+  { immediate: true }
+);
   </script>
   

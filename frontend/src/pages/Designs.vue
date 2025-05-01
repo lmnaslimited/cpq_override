@@ -72,8 +72,6 @@
   import LayoutHeader from '@/components/LayoutHeader.vue'
   import DesignsListView from '@/components/ListViews/DesignsListView.vue'
   import DesignModal from '@/components/Modals/DesignModal.vue'
-  import NoteModal from '@/components/Modals/NoteModal.vue'
-  import TaskModal from '@/components/Modals/TaskModal.vue'
   import QuickEntryModal from '@/components/Modals/QuickEntryModal.vue'
   import ViewControls from '@/components/ViewControls.vue'
   import { getMeta } from '@/stores/meta'
@@ -83,7 +81,6 @@
   
   const { getFormattedPercent, getFormattedFloat, getFormattedCurrency } =
     getMeta('Design')
-  const { getUser } = usersStore()
   
   const designsListView = ref(null)
   const showDesignModal = ref(false)
