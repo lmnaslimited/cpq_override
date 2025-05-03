@@ -153,8 +153,6 @@
         resource: { item, sections },
         call,
       })
-      data.fields_meta.attributes.df.depends_on = null
-      data.fields_meta.attributes.df.mandatory_depends_on = null
     },
   })
   

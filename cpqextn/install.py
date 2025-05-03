@@ -1,0 +1,81 @@
+import frappe
+
+def after_install(force=False):
+	add_default_fields_layout(force)
+	
+def add_default_fields_layout(force=False):
+	quick_entry_layouts = {
+		"Item-Quick Entry": {
+			"doctype": "Item",
+			"layout": '[{"name":"first_tab","sections":[{"name":"item_section","columns":[{"name":"column_5jrk","fields":["item_code","item_name"]},{"name":"column_5CPV","fields":["item_group","stock_uom"]}]},{"name":"item_attribute","columns":[{"name":"column_5jrk","fields":["attributes"]}]}]}]',
+		},
+		"Quotation-Quick Entry": {
+			"doctype": "Quotation",
+			"layout": '[{"name":"first_tab","sections":[{"name":"quotation_section","columns":[{"name":"column_5jrk","fields":["quotation_to","party_name"]},{"name":"column_5CPV","fields":["transaction_date","valid_till"]},{"name":"column_5CPV","fields":["status"]}]},{"name":"currency_and_price List","columns":[{"name":"column_5jrk","fields":["currency"]}, {"name":"column_5jrk","fields":["selling_price_list"]}]}]}]',
+		}
+	}
+
+	sidebar_fields_layouts = {
+		"Design-Side Panel": {
+			"doctype": "Design",
+			"layout": '[{"label":"Design Information","name":"design_information","opened":true,"columns":[{"name":"column1","fields":["design_template","status","item"]}]},{"label":"Price List","name":"price_list","opened":true,"columns":[{"name":"column1","fields":["direct_material_cost","total_cost"]}]},{"label":"Ownership","name":"ownership_tab","opened":true,"columns":[{"name":"column1","fields":["created_by"]}]}]',
+		},
+		"Item-Side Panel": {
+			"doctype": "Item",
+			"layout": '[{"label":"Item Details","name":"item_details","opened":true,"columns":[{"name":"column1","fields":["item_code","item_name","item_group","stock_uom"]}],"showEditButton":true,"visible":4}]',
+		},
+		"Quotation-Side Panel": {
+			"doctype": "Quotation",
+			"layout": '[{"label":"Quotation Details","name":"quotation_details","opened":true,"columns":[{"name":"column1","fields":["quotation_to","party_name","customer_name","transaction_date","valid_till","order_type"]}],"showEditButton":true,"visible":6},{"label":"Currency and Price List","name":"currency_and_pricelist","opened":true,"columns":[{"name":"column1","fields":["currency","selling_price_list"]}],"showEditButton":true,"visible":2},{"label":"Total","name":"total","opened":true,"columns":[{"name":"column1","fields":["total_qty","total","net_total","grand_total"]}],"showEditButton":true,"visible":2},{"label":"Additional Discount","name":"additional_discount","opened":true,"columns":[{"name":"column1","fields":["total_qty","total","apply_discount_on","additional_discount_percentage","discount_amount"]}],"showEditButton":true,"visible":2}]',
+		}
+	}
+
+	data_fields_layouts = {
+		"Design-Data Fields": {
+			"doctype": "Design",
+			"layout": '[{"name":"tab_DoQF","sections":[{"name":"section_hWFE","columns":[{"name":"column_OOsl","fields":["design_attributes"]}]}]}]',
+		},
+		"Item-Data Fields": {
+			"doctype": "Item",
+			"layout": '[{"name":"tab_5if5","sections":[{"name":"section_Axge","columns":[{"name":"column_PSU4","fields":["is_stock_item","auto_create_assets"]}]},{"name":"section_6cua","columns":[{"name":"column_ihfy","fields":["description","brand"]}]},{"name":"section_kqgy","columns":[{"name":"column_sSU8","fields":["attributes"]}]}]},{"name":"tab_8dGd","sections":[{"name":"section_LLTT","columns":[{"name":"column_jmkI","fields":[]}]}]},{"name":"tab_AJXj","sections":[{"name":"section_85JY","columns":[{"name":"column_X0ZV","fields":[]}]},{"name":"section_tKW5","columns":[{"name":"column_6Vvf","fields":["shelf_life_in_days","end_of_life","default_material_request_type","valuation_method"]},{"name":"column_hRdb","fields":["warranty_period","weight_per_unit","weight_uom","allow_negative_stock"]}]},{"name":"section_Kvoo","columns":[{"name":"column_HJ8K","fields":["barcodes"]}]},{"name":"section_cuQr","columns":[{"name":"column_Tpyi","fields":["reorder_levels"]}]},{"name":"section_vw9l","columns":[{"name":"column_KSLH","fields":["has_batch_no","create_new_batch","batch_number_series","has_expiry_date","retain_sample","sample_quantity"]},{"name":"column_hSXd","fields":["has_serial_no","serial_no_series"]}]}]},{"name":"tab_VTDJ","sections":[{"name":"section_2hXV","columns":[{"name":"column_Zip6","fields":["variant_of","variant_based_on","attributes"]}]}]},{"name":"tab_8fUi","sections":[{"name":"section_wjvU","columns":[{"name":"column_3Yp0","fields":[]}]},{"name":"section_QsAS","columns":[{"name":"column_MC8G","fields":["enable_deferred_expense","no_of_months_exp"]},{"name":"column_IQkw","fields":["enable_deferred_revenue","no_of_months"]}]},{"name":"section_o0il","columns":[{"name":"column_b9KF","fields":["item_defaults"]}]}]},{"name":"tab_kOJN","sections":[{"name":"section_fusT","columns":[{"name":"column_rfXP","fields":["purchase_uom","min_order_qty","safety_stock","is_purchase_item"]},{"name":"column_ejAq","fields":["lead_time_days","last_purchase_rate","is_customer_provided_item","customer"]}]},{"name":"section_Il6x","columns":[{"name":"column_3j9I","fields":["delivered_by_supplier"]},{"name":"column_0nbt","fields":["supplier_items"]}]},{"name":"section_98hN","columns":[{"name":"column_qRvQ","fields":["country_of_origin"]},{"name":"column_GW07","fields":["customs_tariff_number"]}]}]},{"name":"tab_gI4T","sections":[{"name":"section_MMI5","columns":[{"name":"column_AwYD","fields":["sales_uom","grant_commission","is_sales_item"]},{"name":"column_6Wkp","fields":["max_discount"]}]},{"name":"section_OJQm","columns":[{"name":"column_IsdN","fields":["customer_items"]}]}]},{"name":"tab_826a","sections":[{"name":"section_luT4","columns":[{"name":"column_KnH5","fields":["taxes"]}]}]},{"name":"tab_D32F","sections":[{"name":"section_D5xH","columns":[{"name":"column_B0oD","fields":["inspection_required_before_purchase","quality_inspection_template","inspection_required_before_delivery"]}]}]},{"name":"tab_kBgD","sections":[{"name":"section_DVUf","columns":[{"name":"column_eRTP","fields":["include_item_in_manufacturing","is_sub_contracted_item","default_bom"]},{"name":"column_XQcC","fields":["customer_code","default_item_manufacturer","default_manufacturer_part_no","total_projected_qty"]}]}]}]',
+		},
+	}
+
+	for layout in quick_entry_layouts:
+		if frappe.db.exists("CRM Fields Layout", layout):
+			if force:
+				frappe.delete_doc("CRM Fields Layout", layout)
+			else:
+				continue
+
+		doc = frappe.new_doc("CRM Fields Layout")
+		doc.type = "Quick Entry"
+		doc.dt = quick_entry_layouts[layout]["doctype"]
+		doc.layout = quick_entry_layouts[layout]["layout"]
+		doc.insert()
+
+	for layout in sidebar_fields_layouts:
+		if frappe.db.exists("CRM Fields Layout", layout):
+			if force:
+				frappe.delete_doc("CRM Fields Layout", layout)
+			else:
+				continue
+
+		doc = frappe.new_doc("CRM Fields Layout")
+		doc.type = "Side Panel"
+		doc.dt = sidebar_fields_layouts[layout]["doctype"]
+		doc.layout = sidebar_fields_layouts[layout]["layout"]
+		doc.insert()
+
+	for layout in data_fields_layouts:
+		if frappe.db.exists("CRM Fields Layout", layout):
+			if force:
+				frappe.delete_doc("CRM Fields Layout", layout)
+			else:
+				continue
+
+		doc = frappe.new_doc("CRM Fields Layout")
+		doc.type = "Data Fields"
+		doc.dt = data_fields_layouts[layout]["doctype"]
+		doc.layout = data_fields_layouts[layout]["layout"]
+		doc.insert()

@@ -57,6 +57,7 @@
   
   const { isManager } = usersStore()
   const { updateOnboardingStep } = useOnboarding('frappecrm')
+  const router = useRouter()
   
   const show = defineModel()
   const error = ref(null)
