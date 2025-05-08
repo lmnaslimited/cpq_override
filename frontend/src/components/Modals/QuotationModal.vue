@@ -49,7 +49,7 @@
   import { capture } from '@/telemetry'
   import { createResource } from 'frappe-ui'
   import { useOnboarding } from 'frappe-ui/frappe'
-  import { ref, reactive, nextTick } from 'vue'
+  import { ref, reactive, nextTick, watch, computed } from 'vue'
   import { useRouter } from 'vue-router'
   
   const props = defineProps({
@@ -81,10 +81,11 @@
                 quotation[field.fieldname] = []
               }
               if (field.fieldname === 'party_name') {
-                field.label = 'Customer';
+                field.label = quotation['quotation_to'];
                 field.fieldtype = 'Link';
-                field.options = 'Customer';
+                field.options = quotation['quotation_to'];
                 field.mandatory = 1;
+                quotation[field.fieldname] = ''
                 }
             })
           })
@@ -94,7 +95,7 @@
   })
   
   const quotation = reactive({
-    quotation_to: 'Customer',
+    quotation_to: 'CRM Deal',
     party_name: '',
     transaction_date: '',
     valid_till: '',
@@ -153,5 +154,11 @@
     })
   }
   
+  watch(
+    () => quotation.quotation_to,
+  () => {
+    tabs.fetch()
+      },
+  )
   </script>
   

@@ -342,22 +342,42 @@
   const activities = ref(null) 
   const showQuickEntryModal = ref(false)
 
-  watch(
-  () => sections.data,
-  (val) => {
-    if (val && item.data?.variant_of) {
-        console.log("item")
-      val.forEach(section => {
-        section.columns?.forEach(column => {
-          column.fields?.forEach(field => {
-            field.read_only = 1;
-          });
-        });
-      });
-    }
-  },
-  { immediate: true }
-);
+//   watch(
+//   () => sections.data,
+//   (val) => {
+//     if (val && item.data?.variant_of) {
+//       val.forEach(section => {
+//         section.columns?.forEach(column => {
+//           column.fields?.forEach(field => {
+//             field.read_only = 1;
+//           });
+//         });
+//       });
+//     }
+//   },
+//   { immediate: true }
+// );
   
+function makeFieldsReadOnly(val) {
+  if (val && item.data?.variant_of) {
+    val.forEach(section => {
+      section.columns?.forEach(column => {
+        column.fields?.forEach(field => {
+          field.read_only = 1
+        })
+      })
+    })
+  }
+}
+
+onMounted(() => {
+  if (sections.data) {
+    makeFieldsReadOnly(sections.data)
+  }
+})
+
+watch(() => sections.data, (val) => {
+  makeFieldsReadOnly(val)
+})
   </script>
   

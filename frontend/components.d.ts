@@ -47,6 +47,8 @@ declare module 'vue' {
     CommentBox: typeof import('./src/components/CommentBox.vue')['default']
     CommentIcon: typeof import('./src/components/Icons/CommentIcon.vue')['default']
     CommunicationArea: typeof import('./src/components/CommunicationArea.vue')['default']
+    CondTypeModal: typeof import('./src/components/Modals/CondTypeModal.vue')['default']
+    CondTypesListView: typeof import('./src/components/ListViews/CondTypesListView.vue')['default']
     ContactIcon: typeof import('./src/components/Icons/ContactIcon.vue')['default']
     ContactModal: typeof import('./src/components/Modals/ContactModal.vue')['default']
     ContactsIcon: typeof import('./src/components/Icons/ContactsIcon.vue')['default']
