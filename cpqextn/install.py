@@ -1,21 +1,21 @@
 import frappe
 
 def after_install(force=False):
-	add_default_fields_layout(force)
+	fn_add_default_fields_layout(force)
 	
-def add_default_fields_layout(force=False):
-	quick_entry_layouts = {
+def fn_add_default_fields_layout(force=False):
+	ld_quick_entry_layouts = {
 		"Item-Quick Entry": {
 			"doctype": "Item",
 			"layout": '[{"name":"first_tab","sections":[{"name":"item_section","columns":[{"name":"column_5jrk","fields":["item_code","item_name"]},{"name":"column_5CPV","fields":["item_group","stock_uom"]}]},{"name":"item_attribute","columns":[{"name":"column_5jrk","fields":["attributes"]}]}]}]',
 		},
 		"Quotation-Quick Entry": {
 			"doctype": "Quotation",
-			"layout": '[{"name":"first_tab","sections":[{"name":"quotation_section","columns":[{"name":"column_5jrk","fields":["quotation_to","party_name"]},{"name":"column_5CPV","fields":["transaction_date","valid_till"]},{"name":"column_5CPV","fields":["status"]}]},{"name":"currency_and_price List","columns":[{"name":"column_5jrk","fields":["currency"]}, {"name":"column_5jrk","fields":["selling_price_list"]}]}]}]',
+			"layout": '[{"name":"first_tab","sections":[{"name":"quotation_section","columns":[{"name":"column_5jrk","fields":["quotation_to","party_name"]},{"name":"column_5CPV","fields":["transaction_date"]}]},{"name":"currency_and_price List","columns":[{"name":"column_5jrk","fields":["currency"]},{"name":"column_5jrk","fields":["selling_price_list"]}]},{"label":"New Section","name":"section_JwOX","opened":true,"columns":[{"name":"column_cTLW","fields":["items"]}]}]}]',
 		}
 	}
 
-	sidebar_fields_layouts = {
+	ld_sidebar_fields_layouts = {
 		"Design-Side Panel": {
 			"doctype": "Design",
 			"layout": '[{"label":"Design Information","name":"design_information","opened":true,"columns":[{"name":"column1","fields":["design_template","status","item"]}]},{"label":"Price List","name":"price_list","opened":true,"columns":[{"name":"column1","fields":["direct_material_cost","total_cost"]}]},{"label":"Ownership","name":"ownership_tab","opened":true,"columns":[{"name":"column1","fields":["created_by"]}]}]',
@@ -34,7 +34,7 @@ def add_default_fields_layout(force=False):
 		}
 	}
 
-	data_fields_layouts = {
+	ld_data_fields_layouts = {
 		"Design-Data Fields": {
 			"doctype": "Design",
 			"layout": '[{"name":"tab_DoQF","sections":[{"name":"section_hWFE","columns":[{"name":"column_OOsl","fields":["design_attributes"]}]}]}]',
@@ -47,43 +47,59 @@ def add_default_fields_layout(force=False):
 			"doctype": "CRM Lead",
 			"layout": '[{"name":"first_tab","sections":[{"label":"Tracker","name":"section_DdiP","opened":true,"columns":[{"name":"column_FScX","fields":["custom_question_type","custom_prompt","custom_lead_questionnaire"]}],"editingLabel":false}]}]',
 		},
+		"Quotation-Data Fields": {
+			"doctype": "Quotation",
+			"layout": '[{"name":"tab_ugJ4","sections":[{"name":"section_418P","columns":[{"name":"column_rTsE","fields":["items"]}]},{"name":"section_ZICI","columns":[{"name":"column_X1bf","fields":["total_qty","total_net_weight"]},{"name":"column_j5zc","fields":["base_total","base_net_total"]},{"name":"column_Oxup","fields":["total","net_total"]}]},{"name":"section_peH8","columns":[{"name":"column_KNVq","fields":["tax_category","taxes_and_charges"]},{"name":"column_n1vF","fields":["shipping_rule"]},{"name":"column_gu3c","fields":["incoterm","named_place"]}]},{"name":"section_SjBn","columns":[{"name":"column_4ZKG","fields":["taxes"]}]},{"name":"section_4NH9","columns":[{"name":"column_pQbh","fields":["base_total_taxes_and_charges"]},{"name":"column_9VoF","fields":["total_taxes_and_charges"]}]},{"name":"section_R7dN","columns":[{"name":"column_reVM","fields":["base_grand_total","base_rounding_adjustment","base_rounded_total","base_in_words"]},{"name":"column_2azM","fields":["grand_total","rounding_adjustment","rounded_total","disable_rounded_total","in_words"]}]},{"name":"section_ZScr","columns":[{"name":"column_Uco4","fields":["apply_discount_on","base_discount_amount","coupon_code"]},{"name":"column_HZz0","fields":["additional_discount_percentage","discount_amount","referral_sales_partner"]}]},{"name":"section_eEyy","columns":[{"name":"column_duaO","fields":["other_charges_calculation"]}]},{"name":"section_NaWc","columns":[{"name":"column_Iz3X","fields":["pricing_rules"]}]}]},{"name":"tab_ywjG","sections":[{"name":"section_uw2V","columns":[{"name":"column_esBB","fields":[]}]},{"name":"section_felE","columns":[{"name":"column_8zo2","fields":["customer_address","address_display"]},{"name":"column_BDRr","fields":["contact_person","contact_display","contact_mobile","contact_email"]}]},{"name":"section_M6So","columns":[{"name":"column_f4wz","fields":["shipping_address_name"]},{"name":"column_br9o","fields":["shipping_address"]}]},{"name":"section_frkQ","columns":[{"name":"column_tKI8","fields":["company_address","company_address_display"]},{"name":"column_aAw9","fields":["company_contact_person"]}]}]},{"name":"tab_GTLN","sections":[{"name":"section_1j2D","columns":[{"name":"column_0iKs","fields":[]}]},{"name":"section_uTN6","columns":[{"name":"column_LWPZ","fields":["payment_terms_template","payment_schedule"]}]},{"name":"section_3PC4","columns":[{"name":"column_O0nu","fields":["tc_name","terms"]}]}]},{"name":"tab_sXpK","sections":[{"name":"section_bct8","columns":[{"name":"column_LeTn","fields":[]}]},{"name":"section_9vZe","columns":[{"name":"column_8zAo","fields":["auto_repeat","update_auto_repeat_reference"]}]},{"name":"section_wnPf","columns":[{"name":"column_t4yN","fields":["letter_head","group_same_items"]},{"name":"column_wr3z","fields":["select_print_heading","language"]}]},{"name":"section_G3gZ","columns":[{"name":"column_I3nt","fields":["lost_reasons","competitors"]},{"name":"column_W4ol","fields":["order_lost_reason"]}]},{"name":"section_VzKQ","columns":[{"name":"column_PAwk","fields":["status","customer_group","territory"]},{"name":"column_oBEV","fields":["campaign","source"]},{"name":"column_TRib","fields":["opportunity","supplier_quotation","enq_det"]}]}]},{"name":"tab_2mVR","sections":[{"name":"section_kt06","columns":[{"name":"column_aEA6","fields":[]}]}]}]'
+		}
 	}
 
-	for layout in quick_entry_layouts:
-		if frappe.db.exists("CRM Fields Layout", layout):
+	#we have taken the key's value for each record
+	for l_layout in ld_quick_entry_layouts:
+		#if force and document exist delete them and processed
+		# if not force the exist the function
+		if frappe.db.exists("CRM Fields Layout", l_layout):
 			if force:
-				frappe.delete_doc("CRM Fields Layout", layout)
+				frappe.delete_doc("CRM Fields Layout", l_layout)
 			else:
 				continue
 
-		doc = frappe.new_doc("CRM Fields Layout")
-		doc.type = "Quick Entry"
-		doc.dt = quick_entry_layouts[layout]["doctype"]
-		doc.layout = quick_entry_layouts[layout]["layout"]
-		doc.insert()
+		#create a new document, and update the required field's value
+		ld_doc = frappe.new_doc("CRM Fields Layout")
+		ld_doc.type = "Quick Entry"
+		ld_doc.dt = ld_quick_entry_layouts[l_layout]["doctype"]
+		ld_doc.layout = ld_quick_entry_layouts[l_layout]["layout"]
+		ld_doc.insert()
 
-	for layout in sidebar_fields_layouts:
-		if frappe.db.exists("CRM Fields Layout", layout):
+	#we have taken the key's value for each record
+	for l_layout in ld_sidebar_fields_layouts:
+		#if force and document exist delete them and processed
+		# if not force the exist the function
+		if frappe.db.exists("CRM Fields Layout", l_layout):
 			if force:
-				frappe.delete_doc("CRM Fields Layout", layout)
+				frappe.delete_doc("CRM Fields Layout", l_layout)
 			else:
 				continue
 
-		doc = frappe.new_doc("CRM Fields Layout")
-		doc.type = "Side Panel"
-		doc.dt = sidebar_fields_layouts[layout]["doctype"]
-		doc.layout = sidebar_fields_layouts[layout]["layout"]
-		doc.insert()
+		#create a new document, and update the required field's value
+		ld_doc = frappe.new_doc("CRM Fields Layout")
+		ld_doc.type = "Side Panel"
+		ld_doc.dt = ld_sidebar_fields_layouts[l_layout]["doctype"]
+		ld_doc.layout = ld_sidebar_fields_layouts[l_layout]["layout"]
+		ld_doc.insert()
 
-	for layout in data_fields_layouts:
-		if frappe.db.exists("CRM Fields Layout", layout):
+	#we have taken the key's value for each record
+	for l_layout in ld_data_fields_layouts:
+		#if force and document exist delete them and processed
+		# if not force the exist the function
+		if frappe.db.exists("CRM Fields Layout", l_layout):
 			if force:
-				frappe.delete_doc("CRM Fields Layout", layout)
+				frappe.delete_doc("CRM Fields Layout", l_layout)
 			else:
 				continue
-
-		doc = frappe.new_doc("CRM Fields Layout")
-		doc.type = "Data Fields"
-		doc.dt = data_fields_layouts[layout]["doctype"]
-		doc.layout = data_fields_layouts[layout]["layout"]
-		doc.insert()
+		
+		#create a new document, and update the required field's value
+		ld_doc = frappe.new_doc("CRM Fields Layout")
+		ld_doc.type = "Data Fields"
+		ld_doc.dt = ld_data_fields_layouts[l_layout]["doctype"]
+		ld_doc.layout = ld_data_fields_layouts[l_layout]["layout"]
+		ld_doc.insert()
